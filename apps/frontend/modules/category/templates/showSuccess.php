@@ -14,11 +14,11 @@
  
 <?php if ($pager->haveToPaginate()): ?>
   <div class="pagination">
-    <a href="<?php echo url_for('category', $category) ?>?page=1">
+    <a href="<?php echo url_for('category', $category) ?>/page/1">
       <img src="/images/first.png" alt="First page" title="First page" />
     </a>
  
-    <a href="<?php echo url_for('category', $category) ?>?page=<?php echo $pager->getPreviousPage() ?>">
+    <a href="<?php echo url_for('category', $category) ?>/page/<?php echo $pager->getPreviousPage() ?>">
       <img src="/images/previous.png" alt="Previous page" title="Previous page" />
     </a>
  
@@ -26,15 +26,15 @@
       <?php if ($page == $pager->getPage()): ?>
         <?php echo $page ?>
       <?php else: ?>
-        <a href="<?php echo url_for('category', $category) ?>?page=<?php echo $page ?>"><?php echo $page ?></a>
+        <a href="<?php echo url_for('category', $category) ?>/page/<?php echo $page ?>"><?php echo $page ?></a>
       <?php endif; ?>
     <?php endforeach; ?>
  
-    <a href="<?php echo url_for('category', $category) ?>?page=<?php echo $pager->getNextPage() ?>">
+    <a href="<?php echo url_for('category', $category) ?>/page/<?php echo $pager->getNextPage() ?>">
       <img src="/images/next.png" alt="Next page" title="Next page" />
     </a>
  
-    <a href="<?php echo url_for('category', $category) ?>?page=<?php echo $pager->getLastPage() ?>">
+    <a href="<?php echo url_for('category', $category) ?>/page/<?php echo $pager->getLastPage() ?>">
       <img src="/images/last.png" alt="Last page" title="Last page" />
     </a>
   </div>

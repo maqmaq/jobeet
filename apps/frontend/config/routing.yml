@@ -1,4 +1,12 @@
 # apps/frontend/config/routing.yml
+
+category_page:
+  url:      /category/:slug/page/:page
+  class:    sfDoctrineRoute
+  param:    { module: category, action: show }
+  options:  { model: JobeetCategory, type: object }
+  requirements: { id: \d+, sf_method: [GET] }
+  
 category:
   url:      /category/:slug
   class:    sfDoctrineRoute
