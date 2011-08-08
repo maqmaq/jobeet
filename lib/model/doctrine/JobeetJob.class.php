@@ -74,4 +74,18 @@ public function publish()
   $this->save();
 }
 
+  public function extend()
+  {
+    if (!$this->expiresSoon())
+    {
+      return false;
+    }
+ 
+    $this->setExpiresAt(date('Y-m-d', time() + 86400 * sfConfig::get('app_active_days')));
+ 
+    $this->save();
+ 
+    return true;
+  }
+
 }
