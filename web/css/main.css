@@ -300,9 +300,10 @@ em
 
 .flash_notice
 {
-  margin: 3px 0;
+  margin: 3px auto;
   padding: 7px;
   background-color: #cfc;
+  width: 30%;
 }
 
 .flash_error
