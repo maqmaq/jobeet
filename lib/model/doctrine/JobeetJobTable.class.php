@@ -23,6 +23,16 @@ class JobeetJobTable extends Doctrine_Table
   {
     return $this->addActiveJobsQuery($q)->fetchOne();
   }
+  
+  public function getLatestPost()
+  {
+    $q = Doctrine_Query::create()->from('JobeetJob j');
+ 
+    $this->addActiveJobsQuery($q);
+ 
+    return $q->fetchOne();
+  }
+  
  
   public function getActiveJobs(Doctrine_Query $q = null)
   {
