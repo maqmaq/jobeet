@@ -7,12 +7,23 @@
  */
 class JobeetJobTable extends Doctrine_Table
 {
-	
+
   static public $types = array(
     'full-time' => 'Full time',
     'part-time' => 'Part time',
     'freelance' => 'Freelance',
   );
+  
+    public function getForToken(array $parameters)
+  {
+    $affiliate = Doctrine_Core::getTable('JobeetAffiliate') ->findOneByToken($parameters['token']);
+    if (!$affiliate || !$affiliate->getIsActive())
+    {
+      throw new sfError404Exception(sprintf('Affiliate with token "%s" does not exist or is not activated.', $parameters['token']));
+    }
+ 
+    return $affiliate->getActiveJobs();
+  }
  
   public function getTypes()
   {
