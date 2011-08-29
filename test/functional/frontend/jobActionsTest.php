@@ -219,5 +219,13 @@ $browser->
   end()
 ;
 
-
+$browser->setHttpHeader('X_REQUESTED_WITH', 'XMLHttpRequest');
+$browser->
+  info('5 - Live search')->
+ 
+  get('/search?query=web*')->
+  with('response')->begin()->
+    checkElement('table tr', 20)->
+  end()
+;
 ?>
