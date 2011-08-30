@@ -38,7 +38,7 @@
 				<form action="<?php echo url_for('job_search') ?>" method="get">
 				<input type="text" name="query" value="<?php echo $sf_request->getParameter('query') ?>" id="search_keywords" />
 				<input type="submit" value="search" />
-				<img id="loader" src="/images/loader.gif" style="vertical-align: middle; display: none" />
+				<img id="loader" src="/images/loader.gif" style="vertical-align: middle; display: none" alt="loading" />
 				<div class="help">
 					Enter some keywords (city, country, position, ...)
 				</div>
@@ -60,6 +60,7 @@
             <?php echo $sf_user->getFlash('error') ?>
           </div>
         <?php endif ?>
+        
 		<div id="job_history">
 			Recent viewed jobs:
 			<ul>
@@ -68,8 +69,10 @@
 						<?php echo link_to($job->getPosition().' - '.$job->getCompany(), 'job_show_user', $job) ?>
 					</li>
 				<?php endforeach ?>
+				<li></li>
 			</ul>
 		</div>
+		
  
 		<div class="content">
 		<?php echo $sf_content ?>
@@ -79,7 +82,7 @@
       <div id="footer">
         <div class="content">
           <span class="symfony">
-            <img src="/images/jobeet-mini.png" />
+            <img src="/images/jobeet-mini.png" alt="jobeet mini" />
             powered by <a href="http://www.symfony-project.org/">
             <img src="/images/symfony.gif" alt="symfony framework" />
             </a>
@@ -94,6 +97,7 @@
 				<a href="<?php echo url_for('affiliate_new') ?>">Become an affiliate</a>
 			</li>
 		  </ul>
+		  <?php include_component('language', 'language') ?>
         </div>
       </div>
     </div>
